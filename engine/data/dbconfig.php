@@ -2,19 +2,19 @@
 
 
 
-define ("DBHOST", "icopoghru9oezxh8.cbetxkdyhwsb.us-east-1.rds.amazonaws.com");
+define ("DBHOST", "icopoghru9oezxh8.cbetxkdyhwsb.us-east-1.rds.amazonaws.com"/*"localhost"*/);
 
 
 
-define ("DBNAME", "prx83g8r9higcsxu");
+define ("DBNAME", "prx83g8r9higcsxu"/*"dle"*/);
 
 
 
-define ("DBUSER", "lfmsmih2wmxg6476");
+define ("DBUSER", "lfmsmih2wmxg6476"/*"root"*/);
 
 
 
-define ("DBPASS", "p3r6ctgp3ib722xm");
+define ("DBPASS", "p3r6ctgp3ib722xm"/*""*/);
 
 
 

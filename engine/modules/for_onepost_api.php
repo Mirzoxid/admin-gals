@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			if ($dle_api->load_table(USERPREFIX . "_token", "*", "token = '".$post->token."'")) {
 
 
-				if ($arr = $dle_api->load_table(USERPREFIX . "_post", "title, id, category, descr, `date`, short_story", "id = '".$post->id."'", false)) {
+				if ($arr = $dle_api->load_table(USERPREFIX . "_post", "title, id, category, xfields, `date`", "id = '".$post->id."'", false)) {
 
 					if ($obj = $dle_api->load_table("serials", "name, url, season_id, serial", "post_id = '".$post->id."'", true, 'id', "desc")) {
 						$arr['urls'] = $obj;
@@ -71,9 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 					if ($arr['urls'] != null) {
 						$dle_api->db->query("UPDATE dle_post_extras SET news_read = news_read + 1 WHERE news_id = '{$post->id}'");
 					}
+					http_response_code(200);
 					$json_arr = [
-
-						"code" => 1,
+						"code" => 200,
 
 						"message" => "Table loaded.",
 
@@ -82,10 +82,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 					];
 
 				} else {
-
+					http_response_code(204);
 					$json_arr = [
 
-						"code" => 0,
+						"code" => 204,
 
 						"error" => "Table not loaded! Id undifined!"
 
@@ -94,10 +94,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 				}
 
 			} else {
-
+				http_response_code(401);
 				$json_arr = [
 
-					"code" => 0,
+					"code" => 401,
 
 					"error" => "Wrong token!"
 
@@ -107,9 +107,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 		} else {
 
+			http_response_code(401);
 			$json_arr = [
-
-				"code" => 0,
+				"code" => 401,
 
 				"error" => "Token empty )) !"
 

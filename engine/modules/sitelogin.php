@@ -508,7 +508,7 @@ if( isset( $_POST['login'] ) AND $_POST['login_name'] AND $_POST['login_password
 
 			$is_logged = false;
 
-			if ($config['login_log']) $db->query( "GRANT INSERT ON db.table TO 'lfmsmih2wmxg6476'@'ec2-54-217-182-136.eu-west-1.compute.amazonaws.com'; INSERT INTO " . PREFIX . "_login_log (ip, count, date) VALUES('{$_IP}', '1', '".time()."') ON DUPLICATE KEY UPDATE count=count+1, date='".time()."'" );
+			if ($config['login_log']) $db->query( "INSERT INTO " . PREFIX . "_login_log (ip, count, date) VALUES('{$_IP}', '1', '".time()."') ON DUPLICATE KEY UPDATE count=count+1, date='".time()."'" );
 
 		}
 

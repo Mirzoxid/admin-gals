@@ -78,7 +78,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 						"message" => "Table loaded.",
 
 						"data" => $arr
-
 					];
 
 				} else {

@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
 				if ($arr = $dle_api->load_table(USERPREFIX . "_post", "title, id, short_story, category, xfields, `date`", "id = '".$post->id."'", false)) {
-
+					var_dump($arr);die;
 					if ($obj = $dle_api->load_table("serials", "name, url, season_id, serial", "post_id = '".$post->id."'", true, 'id', "desc")) {
 						$arr['urls'] = $obj;
 					} elseif ($obj = $dle_api->load_table("movie", "name, url", "post_id = '".$post->id."'", true, 'id', "desc")) {
